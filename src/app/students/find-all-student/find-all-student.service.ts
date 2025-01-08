@@ -10,12 +10,11 @@ export class FindAllStudentService {
 
   async execute(): Promise<AllStudentsDto[]> {
     try {
-      const students = await this.prismaService.students.findMany({
+      return await this.prismaService.students.findMany({
         include: {
           classroom: true,
         },
       });
-      return students;
     } catch (err) {
       this.logger.error(`Erro ao buscar estudantes: ${err.message}`);
       throw new Error('Falha ao buscar estudantes');

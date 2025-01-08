@@ -1,37 +1,33 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateStudentService } from './create-student/create-student.service';
+import { Controller, Get, Param, Query } from '@nestjs/common';
+// import { CreateStudentService } from './create-student/create-student.service';
+import { AllStudentsDto } from './dto/all-students';
 import { FindAllStudentService } from './find-all-student/find-all-student.service';
+import { FindStudentByIdDto } from './dto/find-student-by-id';
 import { FindStudentByIdService } from './find-student-by-id/find-student-by-id.service';
-import { CreateStudentDto } from './dto/create-student.dto';
 
 @Controller('student')
 export class StudentController {
   constructor(
-    private readonly createStudentService: CreateStudentService,
+    // private readonly createStudentService: CreateStudentService,
     private readonly findAllStudents: FindAllStudentService,
     private readonly findStudentByIdService: FindStudentByIdService,
-    private readonly deleteStudentServide: DeleteStudentService,
   ) {}
 
   @Get('all-students')
-  async findAll() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async findAll(@Query('student') student: string): Promise<AllStudentsDto[]> {
     return await this.findAllStudents.execute();
   }
 
   @Get('find-student-by-id:document')
-  async findStudentById(
+  findStudentById(
     @Param('student') student: string,
   ): Promise<FindStudentByIdDto> {
-    try {
-      return await this.findStudentByIdService.execute(student);
-    } catch (err) {
-      console.error(err);
-      throw new Error('Estudante não encontrado');
-    }
+    return this.findStudentByIdService.execute(student);
   }
 
-  @Post('cadastrar')
-  async createStudent(@Body() data: CreateStudentDto) {
-    return await this.createStudentService.execute(data);
-  }
+  // @Post('cadastrar')
+  // createStudent(@Body() createStudentDto: CreateStudentDto) {
+  //   this.createStudentService.(createStudentDto);
+  // }
 }

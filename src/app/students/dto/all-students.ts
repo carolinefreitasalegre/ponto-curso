@@ -5,7 +5,7 @@ import {
   IsString,
   IsEmail,
 } from 'class-validator';
-import { ClassroomDto } from './classroom';
+import { ClassroomDto } from './classroom.dto';
 
 export class AllStudentsDto {
   @IsNumber()

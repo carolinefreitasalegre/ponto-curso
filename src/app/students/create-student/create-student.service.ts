@@ -1,7 +1,7 @@
 import { ConflictException, Injectable, Logger } from '@nestjs/common';
 import { FindStudentByIdService } from '../find-student-by-id/find-student-by-id.service';
 import { CreateStudentDto } from '../dto/create-student.dto';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../../../../prisma/prisma.service';
 import { FindStudentByIdDto } from '../dto/find-student-by-id';
 
 @Injectable()
@@ -39,7 +39,8 @@ export class CreateStudentService {
         this.logger.error(error);
         throw new Error('Falha ao cadastrar estudante');
       }
+    } else {
+      throw new ConflictException('Estudante já cadastrado');
     }
-    throw new ConflictException('Estudante já cadastrado');
   }
 }

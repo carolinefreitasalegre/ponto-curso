@@ -1,50 +1,18 @@
-// import { AllStudentsDto } from '../dto/all-students';
-// import { CreateStudentDto } from '../dto/create-student.dto';
+import { ClassroomDto } from '../dto/classroom.dto';
+import { CreateStudentDto } from '../dto/create-student.dto';
 
-// export class CreateStudentMock {
-//   request: CreateStudentDto;
-//   studentExiting: AllStudentsDto;
+export const mockClassroomDto: ClassroomDto = {
+  id: 1,
+  name: 'Turma A',
+};
 
-//   constructor() {
-//     this.request = {
-//       name: 'John Doe',
-//       document: '1234567890',
-//       birthday_date: '1990-01-01',
-//       registration_date: '2022-01-01',
-//       phone_number: 987654321,
-//       classroom: 1,
-//       email_address: 'johndoe@example.com',
-//     };
-//     this.studentExiting = {
-//       id: 1,
-//       name: 'John Doe',
-//       document: '1234567890',
-//       birthday_date: '1990-01-01',
-//       registration_date: '2022-01-01',
-//       phone_number: 987654321,
-//       classroom: ,
-//       email_address: 'johndoe@example.com',
-//     };
-
-//     // this.studentExitingResponse = {
-//     //   id: 1,
-//     //   name: 'John Doe',
-//     //   document: '1234567890',
-//     //   birthday_date: '1990-01-01',
-//     //   registration_date: '2022-01-01',
-//     //   phone_number: 987654321,
-//     //   classroom: 1,
-//     //   email_address: 'johndoe@example.com',
-//     // };
-//     // this.response = {
-//     //   id: 1,
-//     //   name: 'John Doe',
-//     //   document: '1234567890',
-//     //   birthday_date: '1990-01-01',
-//     //   registration_date: '2022-01-01',
-//     //   phone_number: 987654321,
-//     //   classroom: 1,
-//     //   email_address: 'johndoe@example.com',
-//     // };
-//   }
-// }
+export const mockCreateStudentDto: CreateStudentDto = {
+  name: 'John Doe',
+  document: '123456789',
+  birthday_date: '2005-05-20',
+  registration_date: '2025-01-01',
+  phone_number: 1234567890,
+  classroom_id: 1,
+  classroom: mockClassroomDto,
+  email_address: 'john.doe@example.com',
+};

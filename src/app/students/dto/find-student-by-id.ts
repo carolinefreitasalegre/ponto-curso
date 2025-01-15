@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { ClassroomDto } from './classroom';
+import { ClassroomDto } from './classroom.dto';
 
 export class FindStudentByIdDto {
   @IsNumber()

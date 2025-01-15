@@ -4,7 +4,6 @@ import { FindAllStudentService } from './find-all-student/find-all-student.servi
 import { FindStudentByIdService } from './find-student-by-id/find-student-by-id.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { DeleteStudentService } from './delete-student/delete-student.service';
-import { DeleteStudentDto } from './dto/delete-student';
 
 @Controller('student')
 export class StudentController {
